@@ -14,9 +14,9 @@ export function getRecipes(){
     })
 }
 
-function saveRecipes(){
+function saveRecipes(data){
     return new Promise((resolve, reject)=>{
-        fs.writeFile('api/data.json', JSON.stringify(data, null, 2), (err)=>{
+        fs.writeFile('api/data.json', JSON.stringify(data,null, 2), (err)=>{
             if(err){
                 reject(err)
             }else{
@@ -24,4 +24,11 @@ function saveRecipes(){
             }
         })
     })
+}
+
+export async function createRecipe(recipe){
+    const allRecipes = await getRecipes();
+    allRecipes.push(recipe);
+    await saveRecipes(allRecipes);
+    return recipe;
 }

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from 'cors';
-import { getRecipes } from "./records.js";
+import { createRecipe, getRecipes } from "./records.js";
 
 const app = express();
 app.use(express.json());
@@ -12,7 +12,21 @@ app.get('/allRecipes', async(req, res)=>{
     res.json(recipes);
 })
 
+app.post('/createRecipe',async(req,res)=>{
 
-app.listen(3000, ()=>{
+    const rec={
+        id: req.body.id,
+        title: req.body.title,
+        servings: req.body.servings,
+        prepTime: req.body.prepTime,
+        cookTime: req.body.cookTime,
+        ingredients: req.body.ingredients,
+        steps: req.body.steps
+    }
+    await createRecipe(rec);
+    res.json(rec);
+})
+
+app.listen(3000, ()=>{ 
     console.log('ceva');
 })

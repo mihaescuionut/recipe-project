@@ -12,9 +12,8 @@ body{
     background-image: url('https://source.unsplash.com/1600x900/?landscape');
 }
 
-.container{
+.myrecipes_all_container{
     background:  rgba(0, 0, 0, 0.7); 
-    height: 100vh;
 
     /* #000000d0; */
 }
@@ -31,6 +30,7 @@ body{
     align-items: center;
     width: 100%;
     height: 70px;
+    font-size: 20px;
 }
 .hdr i{
     display: flex;
