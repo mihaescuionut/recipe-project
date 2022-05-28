@@ -1,6 +1,6 @@
 import express from "express";
 import cors from 'cors';
-import { createRecipe, getRecipes } from "./records.js";
+import { addFavRecipe, createRecipe, deleteFavRecipe, getFavRecipes, getMyRecipes, getRecipes } from "./records.js";
 
 const app = express();
 app.use(express.json());
@@ -26,6 +26,36 @@ app.post('/createRecipe',async(req,res)=>{
     await createRecipe(rec);
     res.json(rec);
 })
+
+
+
+app.get('/getFavRecipes', async(req, res)=>{
+    let favRecipes = await getFavRecipes();
+    res.json(favRecipes);
+})
+
+app.put('/add/:id', async (req,res)=>{
+    const id = req.params.id;
+    await addFavRecipe(id);
+    res.json(id);
+})
+
+app.delete('/delete/:id', async(req, res)=>{
+    const id = req.params.id;
+    await deleteFavRecipe(id);
+    res.json(id);
+})
+
+
+app.get('/myRecipes', async (req,res)=>{
+    let myRec = await getMyRecipes();
+    res.json(myRec);
+    console.log(myRec);
+})
+
+
+
+
 
 app.listen(3000, ()=>{ 
     console.log('ceva');

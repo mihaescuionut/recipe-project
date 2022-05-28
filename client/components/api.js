@@ -27,4 +27,24 @@ export class Api{
         return data;
 
     }
+
+    async getFavRecipes(){
+        let favRecipes = await this.api('getFavRecipes');
+        return favRecipes.json();
+    }
+
+    async addFavRecipe(id){
+        let recipe = await this.api(`add/${id}`, 'PUT');
+        return recipe;
+    }
+
+    async deleteFavRecipe(id){
+        let recipe = await this.api(`delete/${id}`, 'DELETE');
+        return recipe;
+    }
+
+    async getMyRecipes(){
+        let myRec = await this.api('myRecipes', 'GET');
+        return myRec;
+    }
 }

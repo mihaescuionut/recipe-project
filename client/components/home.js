@@ -1,4 +1,5 @@
 import { Api } from "./api.js";
+import { myFavourites } from "./myfav.js";
 import { myRecipes } from "./myrecipes.js";
 import { newRecipe } from "./newrecipe.js";
 
@@ -107,13 +108,10 @@ export class Home{
             }else if(el.textContent == "My Recipes"){
                 let rcp = new myRecipes();
                 rcp.viewMyRecipes();
+            }else if(el.textContent == "My Favourites"){
+                let myfav = new myFavourites();
+                myfav.viewMyFav();
             }
-        })
-
-        this.filters = document.querySelector('.filters');
-        this.filters.addEventListener("click", (e)=>{
-            let el = e.target;
-            
         })
 
     }
@@ -196,31 +194,27 @@ export class Home{
 
     async favRecipes(){
         let api = new Api();
-        let recipes = await api.getAllRecipes();
+        let favRec = await api.getFavRecipes();
         let allRecipes = document.querySelector('.all_recipes');
-        let arr = [];
-
+    
         allRecipes.addEventListener('click', (e)=>{
             let el = e.target;
+            
 
             if(el.classList.contains('bi-heart')){
-
-                recipes.forEach(e=>{
-                    if(e.id == el.parentNode.id){
-                        arr.push(e);
+                let parent = el.parentNode;
+                let id = parent.id;
+                favRec.forEach(e=>{
+                    if(id != e.id){
+                        api.addFavRecipe(id);
                     }
                 })
-
             }else if(el.classList.contains('fa-star')){
-
                 el.classList = "";
                 el.classList = "fa fa-star checked";
             }
 
         })
-
-
-        return arr;
     }
 
 }

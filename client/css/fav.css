@@ -29,6 +29,14 @@ body{
     border-top: solid 1px red;
     border-bottom: solid 1px red;
     border-radius: 25px;
-    margin: 0;
-    padding: 0;
+    padding: 10px;
+    gap: 20px;
+}
+.my_fav_card i{
+    cursor:pointer;
+    transition: all 1s;
+    
+}
+.my_fav_card i:hover{
+    transform: scale(1.5);
 }

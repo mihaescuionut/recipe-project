@@ -150,7 +150,7 @@ export class newRecipe{
         let servings = document.querySelector('.servings_input').value;
         let ingredients = document.querySelector('.ingredients_input').value;
         let cooking = document.querySelector('.cooking_input').value;
-        let prep = document.querySelector('')
+        let prep = document.querySelector('.prep_input').value;
         let tags = document.querySelector('.tags_recipe_details');
         let steps = document.querySelector('.steps_input').value;
 
