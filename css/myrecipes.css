@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: grey;
+    font-family: 'Odibee Sans', cursive;
+}
+body{
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+
+.myrecipes_all_container{
+    background:  rgba(0, 0, 0, 0.7); 
+
+    /* #000000d0; */
+}
+
+.fa-solid{
+    width: 100px;
+    height: 100px;
+    color: blue;
+}
+.hdr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+}
+.hdr i{
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
+.hdr i:hover{
+    color: red;
+    transition: all 1.5s;
+    cursor: pointer;
+}
+
+.fa-solid::before{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hdr h2:hover{
+    color: red;
+    transition: all 1.5s;
+    cursor: pointer;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    gap: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 99%;
+    transition: all 1s;
+}
+
+a:hover{
+    color: red;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+}
+
+
+.my_recipes_container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    gap: 10px;
+}
+
+.my_recipes_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-height: 40vh;
+    border: solid 1px red;
+    margin: 0;
+    padding: 0;
+}
+
+.my_recipes_edit_and_delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 20px;
+    padding: 20px;
+}
+
+.fa-solid.fa-pencil::before, .fa-regular.fa-trash-can::before{
+    width: 14px;
+    color: white;
+}
+
+.my_recipes_edit_and_delete i:hover{
+    cursor: pointer;
+}
+
+.checked{
+    color: orange;
+}
+
+.fa-star:hover{
+    color: orange;
+    cursor: pointer;
+}
+
